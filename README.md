@@ -1,4 +1,6 @@
-# Blog from the official documentation + gatsby image  
+# Blog using STRAPI as backend and GatsbyJS as front-end  
+
+Blog from the official documentation + gatsby image  
 
 TODO: add typescript
 
