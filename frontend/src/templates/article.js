@@ -6,6 +6,11 @@ import Moment from "react-moment"
 
 import Layout from "../components/layout"
 
+import {MDXProvider} from '@mdx-js/react'
+import {YouTube} from '@blocks/kit'
+
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
+
 export const query = graphql`
   query ArticleQuery($id: Int!) {
     strapiArticle(strapiId: { eq: $id }) {
@@ -16,15 +21,25 @@ export const query = graphql`
       image {
         publicURL
       }
+      childStrapiArticleContent {
+        childMdx {
+          body
+        }
+      }
     }
   }
 `
+
+const shortcodes = {YouTube}
 
 const Article = ({ data }) => {
   const article = data.strapiArticle
   return (
     <Layout>
       <div>
+        <MDXProvider components={shortcodes}>
+          <MDXRenderer>{article.childStrapiArticleContent.childMdx.body}</MDXRenderer>
+        </MDXProvider>        
         <div
           id="banner"
           className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
@@ -34,6 +49,9 @@ const Article = ({ data }) => {
         >
           <h1>{article.title}</h1>
         </div>
+
+        
+  {/* <MDXProvider components={shortcodes}>{article.content}</MDXProvider> */}
 
         <div className="uk-section">
           <div className="uk-container uk-container-small">

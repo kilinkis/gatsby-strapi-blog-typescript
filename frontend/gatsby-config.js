@@ -17,12 +17,17 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-mdx`,
     {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: process.env.API_URL || "http://localhost:1337",
         contentTypes: [
           // List of the Content Types you want to be able to request from Gatsby.
+          // {
+          //   type: "article",
+          //   markdownFields: ["content"],
+          // },
           "article",
           "category",
         ],
