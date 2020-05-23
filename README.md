@@ -2,8 +2,6 @@
 
 Blog from the official documentation + gatsby image  
 
-TODO: add typescript
-
 ### Getting started
 
 **Clone the repository and install dependencies**
