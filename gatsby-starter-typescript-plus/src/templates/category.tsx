@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
+import LayoutRoot from '../components/LayoutRoot'
 import ArticlesComponent from '../components/articles'
 
 interface CategoryProps {
@@ -27,6 +28,12 @@ export const query = graphql`
           image {
             localFile {
               url
+              childImageSharp {
+                fluid(maxWidth: 595, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluidLimitPresentationSize
+                }
+              }
             }
           }
         }
@@ -43,12 +50,14 @@ const Category: React.FC<CategoryProps> = ({ data }) => {
   const category = data.category.name
 
   return (
-    <div className="uk-section">
-      <div className="uk-container uk-container-large">
-        <h1>{category}</h1>
-        <ArticlesComponent articles={articles} />
+    <LayoutRoot>
+      <div className="uk-section">
+        <div className="uk-container uk-container-large">
+          <h1>{category}</h1>
+          <ArticlesComponent articles={articles} />
+        </div>
       </div>
-    </div>
+    </LayoutRoot>
   )
 }
 

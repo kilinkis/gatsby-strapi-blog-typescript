@@ -1,3 +1,5 @@
+import { FluidObject } from 'gatsby-image'
+
 interface CSSModule {
   [className: string]: string
 }
@@ -17,6 +19,7 @@ interface Article {
         url: string
         childImageSharp: {
           fixed: FixedObject
+          fluid: FluidObject
         }
       }
     }

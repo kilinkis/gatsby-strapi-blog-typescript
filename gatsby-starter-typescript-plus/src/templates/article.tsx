@@ -4,6 +4,8 @@ import Img, { FixedObject } from 'gatsby-image'
 
 import ReactMarkdown from 'react-markdown'
 
+import LayoutRoot from '../components/LayoutRoot'
+
 // import {MDXProvider} from '@mdx-js/react'
 // import {YouTube} from '@blocks/kit'
 
@@ -50,33 +52,33 @@ export const query = graphql`
 const Article: React.FC<ArticleProps> = ({ data }) => {
   const article = data.strapiArticle
   return (
-    <div>
-      <div
-        id="banner"
-        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
-        data-src={article.image.localFile.url}
-        data-srcset={article.image.localFile.url}
-        data-uk-img
-      >
-        <h1>{article.title}</h1>
-      </div>
+    <LayoutRoot>
+      <div>
+        <div
+          id="banner"
+          className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
+        >
+          <Img className="banner-bg" fixed={article.image.localFile.childImageSharp.fixed} />
+          <h1 className="uk-position-z-index">{article.title}</h1>
+        </div>
 
-      {/* <div className="uk-section">
+        {/* <div className="uk-section">
         <div className="uk-container uk-container-small">
-          <ReactMarkdown source={article.content} />
+        <ReactMarkdown source={article.content} />
         </div>
       </div> */}
 
-      <div className="uk-section">
-        <div className="uk-container uk-container-small">
-          <ReactMarkdown source={article.content} />
+        <div className="uk-section">
+          <div className="uk-container uk-container-small">
+            <ReactMarkdown source={article.content} />
+          </div>
+        </div>
+        <div className="uk-section">
+          {/* <Img fixed={article.image.localFile.childImageSharp.fixed} /> */}
+          {/* <img src={article.image.localFile.url} height="600" /> */}
         </div>
       </div>
-      <div className="uk-section">
-        <Img fixed={article.image.localFile.childImageSharp.fixed} />
-        {/* <img src={article.image.localFile.url} height="600" /> */}
-      </div>
-    </div>
+    </LayoutRoot>
   )
 }
 

@@ -157,6 +157,7 @@ export default `
       padding-left: 1.25rem;
     }
   }
+
   a {
     text-decoration: none !important;
   }
@@ -198,4 +199,9 @@ export default `
     opacity: 1 !important;
     transition: opacity 0.25s cubic-bezier(0.39, 0.575, 0.565, 1) !important;
   }
+  .banner-bg {
+    position: absolute !important;
+    width: calc(100% - 2.5rem) !important;
+    height: 800px !important;
+}
 `

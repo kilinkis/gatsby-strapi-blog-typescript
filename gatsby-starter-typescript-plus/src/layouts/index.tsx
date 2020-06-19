@@ -50,6 +50,12 @@ const IndexLayout: React.FC<Props> = ({ children }) => (
               image {
                 localFile {
                   url
+                  childImageSharp {
+                    fluid(maxWidth: 595, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                      ...GatsbyImageSharpFluidLimitPresentationSize
+                    }
+                  }
                 }
               }
             }
@@ -59,37 +65,12 @@ const IndexLayout: React.FC<Props> = ({ children }) => (
     `}
     render={(data: StaticQueryProps) => (
       <LayoutRoot>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
-            { name: 'keywords', content: data.site.siteMetadata.keywords }
-          ]}
-          link={[
-            {
-              rel: 'stylesheet',
-              href: 'https://fonts.googleapis.com/css?family=Staatliches'
-            },
-            {
-              rel: 'stylesheet',
-              href: 'https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css'
-            }
-          ]}
-          script={[
-            {
-              src: 'https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js'
-            },
-            {
-              src: 'https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js'
-            },
-            {
-              src: 'https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js'
-            }
-          ]}
-        />
-        {/* <Header title={data.site.siteMetadata.title} />
-        <LayoutMain>{children}</LayoutMain> */}
-        <ArticlesComponent articles={data.allStrapiArticle.edges} />
+        <div className="uk-section">
+          <div className="uk-container uk-container-large">
+            <h1>Strapi blog</h1>
+            <ArticlesComponent articles={data.allStrapiArticle.edges} />
+          </div>
+        </div>
       </LayoutRoot>
     )}
   />
