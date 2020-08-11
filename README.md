@@ -1,6 +1,6 @@
 # Blog using STRAPI as backend and GatsbyJS as front-end  
 
-Blog from the official documentation + gatsby image  
+This repo has actually two gatsby apps, one under `./frontend` and the other under `./gatsby-starter-typescript-plus`.
 
 ### Getting started
 
