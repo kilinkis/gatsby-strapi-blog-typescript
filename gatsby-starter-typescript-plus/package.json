@@ -49,7 +49,7 @@
     "gatsby-source-filesystem": "^2.3.11",
     "gatsby-source-strapi": "^0.0.12",
     "gatsby-transformer-json": "^2.4.5",
-    "gatsby-transformer-remark": "^2.8.16",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.5.5",
     "modern-normalize": "^0.5.0",
     "normalize.css": "^8.0.1",
